@@ -32,9 +32,14 @@ public class Inicio extends javax.swing.JFrame {
         jButtonCalendario = new javax.swing.JButton();
         jButtonGastos = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButtonAluno.setText("Aluno");
+        jButtonAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlunoActionPerformed(evt);
+            }
+        });
 
         jButtonAula.setText("Aula");
 
@@ -73,6 +78,12 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlunoActionPerformed
+        // TODO add your handling code here:
+        new gui.AlunoGUI().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonAlunoActionPerformed
 
     /**
      * @param args the command line arguments
