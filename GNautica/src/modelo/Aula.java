@@ -3,23 +3,22 @@ package modelo;
 
 import java.util.Calendar;
 
-
 /**
  *
  * @author Zetsubou (Leidjane)
  * data: 31/08/2017
  */
 public class Aula {
-    int id;
+    int idAula;
     Calendar data;
     String local;
     Calendar horario;
-    String tipo;
+    String tipoAula;
     public int getId(){
-        return id;
+        return idAula;
     }
-    public void setId(int id){
-        this.id = id;
+    public void setId(int idAula){
+        this.idAula = idAula;
     }
     public Calendar getData(){
         return data;
@@ -39,10 +38,10 @@ public class Aula {
     public void setHorario(Calendar horario){
         this.horario = horario;
     }
-    public String getTipo(){
-        return tipo;
+    public String getTipoAula(){
+        return tipoAula;
     }
-    public void setTipo(String tipo){
-        this.tipo = tipo;
+    public void setTipoAula(String tipoAula){
+        this.tipoAula = tipoAula;
     }
 }
