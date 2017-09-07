@@ -6,15 +6,15 @@ package modelo;
  * data: 31/08/2017
  */
 public class Aluno {
-    int idAluno;
-    String nome;
-    String cpf;
-    String endereco;
-    String telefone;
-    String email;
-    String categoria;
-    String pendencia;
-    String avaliacao;
+    private int idAluno;
+    private String nome;
+    private String cpf;
+    private String endereco;
+    private String telefone;
+    private String email;
+    private String categoria;
+    private String pendencia;
+    private String avaliacao;
     
     public int getIdAluno(){
         return idAluno;
