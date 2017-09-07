@@ -6,6 +6,7 @@ package modelo;
  * data: 31/08/2017
  */
 public class Aluno {
+    int id;
     String nome;
     String cpf;
     String endereco;
@@ -14,6 +15,13 @@ public class Aluno {
     String categoria;
     String pendencia;
     String avaliacao;
+    
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
     public String getCpf(){
         return cpf;
     }
