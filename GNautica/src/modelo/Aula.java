@@ -14,7 +14,7 @@ public class Aula {
     private String local;
     private Calendar horario;
     private String tipoAula;
-    private public int getId(){
+    public int getId(){
         return idAula;
     }
     public void setId(int idAula){
