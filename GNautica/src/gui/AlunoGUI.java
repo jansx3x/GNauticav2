@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package gui;
-
+import modelo.Aluno;
+    //importação de dados do objeto Aluno
+import dao.AlunoDAO;
+    //importação de dados do objeto AlunoDAO
+import javax.swing.JOptionPane;
 /**
  *
  * @author Paulo
@@ -171,6 +175,11 @@ public class AlunoGUI extends javax.swing.JFrame {
         );
 
         jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
 
         jButtonLimpar.setText("Limpar");
         jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +228,7 @@ public class AlunoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
-        // TODO add your handling code here:
+        // Limpa os dados nos campos da interface Cadastro de Alunos:
         jTextFieldNome.setText("");
         jFormattedTextFieldCPF.setText("");
         jTextFieldEndereco.setText("");
@@ -233,6 +242,38 @@ public class AlunoGUI extends javax.swing.JFrame {
     private void jTextFieldAvaliacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAvaliacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAvaliacaoActionPerformed
+
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        // TODO add your handling code here:
+        Aluno aluno = new Aluno();
+        aluno.setNome(jTextFieldNome.getText());
+        aluno.setCpf(jFormattedTextFieldCPF.getText());
+        aluno.setEndereco(jTextFieldEndereco.getText());
+        aluno.setTelefone(jFormattedTextFieldTelefone.getText());
+        aluno.setEmail(jTextFieldEmail.getText());
+        aluno.setCategoria(jComboBoxCategoria.getSelectedItem().toString());
+        aluno.setPendencia(jTextFieldPendencia.getText());
+        aluno.setAvaliacao(jTextFieldAvaliacao.getText());
+        
+        if((jTextFieldNome.getText().isEmpty())||(jFormattedTextFieldCPF.getText().isEmpty())||
+                (jTextFieldEndereco.getText().isEmpty())||(jFormattedTextFieldTelefone.getText().isEmpty())||
+                (jTextFieldEmail.getText().isEmpty())||(jComboBoxCategoria.getSelectedItem().toString().isEmpty()
+                ||(jTextFieldPendencia.getText().isEmpty())||(jTextFieldAvaliacao.getText().isEmpty()))){
+                    JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+        }else {
+            AlunoDAO dao = new AlunoDAO();
+            dao.Adiciona(aluno);
+            JOptionPane.showMessageDialog(null,"Aluno: "+jTextFieldNome.getText()+"\nInserido com sucesso!");
+        }
+        jTextFieldNome.setText("");
+        jFormattedTextFieldCPF.setText("");
+        jTextFieldEndereco.setText("");
+        jFormattedTextFieldTelefone.setText("");
+        jTextFieldEmail.setText("");
+        jComboBoxCategoria.setSelectedItem("Selecione");
+        jTextFieldPendencia.setText("");
+        jTextFieldAvaliacao.setText("");
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     /**
      * @param args the command line arguments

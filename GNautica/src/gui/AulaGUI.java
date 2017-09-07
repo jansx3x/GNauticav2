@@ -161,7 +161,7 @@ public class AulaGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Limpa os dados nos campos da interface Agendamento de Aula:
         jFormattedTextFieldData.setText("");
         jTextFieldLocal.setText("");
         jFormattedTextFieldHorario.setText("");
