@@ -42,6 +42,11 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jButtonAula.setText("Aula");
+        jButtonAula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAulaActionPerformed(evt);
+            }
+        });
 
         jButtonCalendario.setText("Calendário");
 
@@ -82,8 +87,12 @@ public class Inicio extends javax.swing.JFrame {
     private void jButtonAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlunoActionPerformed
         // TODO add your handling code here:
         new gui.AlunoGUI().setVisible(true);
-        dispose();
     }//GEN-LAST:event_jButtonAlunoActionPerformed
+
+    private void jButtonAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAulaActionPerformed
+        // TODO add your handling code here:
+        new gui.AulaGUI().setVisible(true);
+    }//GEN-LAST:event_jButtonAulaActionPerformed
 
     /**
      * @param args the command line arguments
