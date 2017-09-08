@@ -214,7 +214,7 @@ public class AlunoGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -262,7 +262,7 @@ public class AlunoGUI extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         }else {
             AlunoDAO dao = new AlunoDAO();
-            dao.Adiciona(aluno);
+            dao.Cadastrar(aluno);
             JOptionPane.showMessageDialog(null,"Aluno: "+jTextFieldNome.getText()+"\nInserido com sucesso!");
         }
         jTextFieldNome.setText("");
@@ -304,6 +304,7 @@ public class AlunoGUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new AlunoGUI().setVisible(true);
             }

@@ -7,11 +7,11 @@ package modelo;
  * data: 31/08/2017
  */
 public class Pagamento {
-    int idPag;
-    double taxa;
-    double carteira;
-    String tipoPag;
-    String situacao;
+    private int idPag;
+    private double taxa;
+    private double carteira;
+    private String tipoPag;
+    private String situacao;
     public int getIdPag(){
         return idPag;
     }

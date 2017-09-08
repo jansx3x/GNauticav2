@@ -7,9 +7,9 @@ package modelo;
  * data: 31/08/2017
  */
 public class Documentos {
-    int idDoc;
-    String tipoDoc;
-    String condicao;
+    private int idDoc;
+    private String tipoDoc;
+    private String condicao;
     public int getId(){
         return idDoc;
     }

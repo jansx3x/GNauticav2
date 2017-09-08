@@ -1,10 +1,6 @@
-// situa em qual package ou “pacote” está a classe 
 package factory;
-// faz as importações de classes necessárias para o funcionamento do programa
 import java.sql.Connection; 
-// conexão SQL para Java
 import java.sql.DriverManager; 
-// driver de conexão SQL para Java
 import java.sql.SQLException;
 
 /**
@@ -13,12 +9,16 @@ import java.sql.SQLException;
  */
 
 public class ConnectionFactory {
-    public Connection getConnection() {
-        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/gnautica","root","3991");
-	}         
-	catch(SQLException excecao) {
-            throw new RuntimeException(excecao);
-	}
+    public static final int MYSQL = 0;
+    private static final String MySQLDriver = "com.mysql.jdbc.Driver";
+    
+    public static Connection conexao(String url, String nome, String senha, int banco)
+            throws ClassNotFoundException, SQLException{
+        switch(banco){
+            case MYSQL:
+                Class.forName(MySQLDriver);
+                break;
+        }
+        return DriverManager.getConnection(url, nome, senha);
     }
 }

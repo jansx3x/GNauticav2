@@ -9,11 +9,11 @@ import java.util.Calendar;
  * data: 31/08/2017
  */
 public class Aula {
-    int idAula;
-    Calendar data;
-    String local;
-    Calendar horario;
-    String tipoAula;
+    private int idAula;
+    private Calendar data;
+    private String local;
+    private Calendar horario;
+    private String tipoAula;
     public int getId(){
         return idAula;
     }

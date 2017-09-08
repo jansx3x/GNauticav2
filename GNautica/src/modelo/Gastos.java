@@ -7,9 +7,9 @@ package modelo;
  * data: 31/08/2017
  */
 public class Gastos {
-    int idGasto;
-    String tipoGasto;
-    double valor;
+    private int idGasto;
+    private String tipoGasto;
+    private double valor;
     public int getIdGasto(){
         return idGasto;
     }
