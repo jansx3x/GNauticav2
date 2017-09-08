@@ -31,10 +31,11 @@ public class Inicio extends javax.swing.JFrame {
         jButtonAula = new javax.swing.JButton();
         jButtonCalendario = new javax.swing.JButton();
         jButtonGastos = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelLogo = new javax.swing.JLabel();
+        jLabelTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("G-Náutica");
 
         jButtonAluno.setText("Aluno");
         jButtonAluno.addActionListener(new java.awt.event.ActionListener() {
@@ -59,12 +60,12 @@ public class Inicio extends javax.swing.JFrame {
 
         jButtonGastos.setText("Gastos");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo4.fw.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo4.fw.png"))); // NOI18N
+        jLabelLogo.setText("jLabel1");
 
-        jLabel2.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel2.setText("Sistema de Gerenciamento Diário");
+        jLabelTitulo.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
+        jLabelTitulo.setForeground(new java.awt.Color(0, 0, 102));
+        jLabelTitulo.setText("Sistema de Gerenciamento Diário");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,9 +84,9 @@ public class Inicio extends javax.swing.JFrame {
                             .addComponent(jButtonGastos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(141, 141, 141))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabelTitulo)
                         .addGap(18, 18, 18))))
         );
         layout.setVerticalGroup(
@@ -93,8 +94,8 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAula, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,7 +164,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAula;
     private javax.swing.JButton jButtonCalendario;
     private javax.swing.JButton jButtonGastos;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JLabel jLabelTitulo;
     // End of variables declaration//GEN-END:variables
 }
