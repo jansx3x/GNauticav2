@@ -1,10 +1,10 @@
 package dao;
-import factory.ConnectionFactory;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import modelo.Aluno;
-import java.sql.*;
-import java.sql.PreparedStatement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import factory.ConnectionFactory;
 
 /**
  *
@@ -12,35 +12,82 @@ import java.util.logging.Logger;
  */
 
 public class AlunoDAO {
-    private Connection connection;
-    int idAluno;
-    String nome;
-    String cpf;
-    String endereco;
-    String telefone;
-    String email;
-    String categoria;
-    String pendencia;
-    String avaliacao;
+    private final String URL = "jdbc:mysql://localhost/gnautica",
+            NOME = "root", SENHA = "3991";
     
-    public AlunoDAO(){
-        this.connection = new ConnectionFactory().getConnection();
+    private Connection con;
+    private Statement comando;
+    
+    public void Cadastrar(Aluno aluno){
+        conectar();
+        try{
+            comando.executeUpdate("INSERT INTO Aluno VALUES("
+                    + aluno.getNome() + "," + aluno.getCpf() + "," + aluno.getEndereco() + ","
+                    + aluno.getTelefone() + "," + aluno.getEmail() + "," + aluno.getCategoria() + ","
+                    + aluno.getPendencia() + "," + aluno.getAvaliacao() + ")");
+            System.out.println("Aluno cadastrado!");
+        } catch(SQLException e){
+            imprimeErro("Erro ao cadastrar aluno!", e.getMessage());
+        } finally {
+            fechar();
+        }
     }
     
-    public void Adiciona(Aluno aluno){
-        String sql = "INSERT INTO Aluno(nome,cpf,endereco,telefone,email,categoria,pendencia,avaliacao) VALUES(?,?,?,?,?,?,?,?)";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1,aluno.getNome());
-            stmt.setString(2,aluno.getCpf());
-            stmt.setString(3,aluno.getEndereco());
-            stmt.setString(4,aluno.getTelefone());
-            stmt.setString(5,aluno.getEmail());
-            stmt.setString(6,aluno.getCategoria());
-            stmt.setString(7,aluno.getPendencia());
-            stmt.setString(8,aluno.getAvaliacao());
-            stmt.execute();
-        } catch (SQLException ex) {
-            Logger.getLogger(AlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
+    public void Alterar(Aluno aluno){
+        conectar();
+        String com = "UPDATE Aluno SET nome = " + aluno.getNome()
+                + ", CPF = " + aluno.getCpf() + ", endereco = " + aluno.getEndereco()
+                + ", telefone = " + aluno.getTelefone() + ", email = " + aluno.getEmail()
+                + ", categoria = " + aluno.getCategoria() + ", pendencia = " + aluno.getPendencia()
+                + ", avaliacao = " + aluno.getAvaliacao() + "WHERE idAluno = " + aluno.getIdAluno() + ";";
+        System.out.println("Alteração realizada!");
+        try{
+            comando.executeUpdate(com);
+        } catch(SQLException e){
+            e.printStackTrace();
+        } finally{
+            fechar();
         }
+    }
+    
+    public void Excluir(int idAluno){
+        conectar();
+        try{
+            comando.executeUpdate("DELETE FROM Aluno WHERE idAluno = " + idAluno + ";");
+        } catch(SQLException e){
+            imprimeErro("Erro ao apagar aula!", e.getMessage());
+        } finally{
+            fechar();
+        }
+    }
+    
+    
+    private void conectar(){
+        try{
+            con = ConnectionFactory.conexao(URL, NOME, SENHA, ConnectionFactory.MYSQL);
+            comando = con.createStatement();
+            System.out.println("Conectado!");
+        } catch(ClassNotFoundException e){
+            imprimeErro("Erro ao carregar o driver!", e.getMessage());
+        } catch(SQLException e){
+            imprimeErro("Erro ao conectar!", e.getMessage());
+        }
+    }
+    
+    private void fechar(){
+        try{
+            comando.close();
+            con.close();
+            System.out.println("Conexão Fechada!");
+        } catch(SQLException e){
+            imprimeErro("Erro ao fechar conexão!", e.getMessage());
+        }
+    }
+    
+    private void imprimeErro(String msg, String msgErro){
+        JOptionPane.showMessageDialog(null, msg, "Erro crítico", 0);
+        System.err.println(msg);
+        System.out.println(msgErro);
+        System.exit(0);
     }
 }
