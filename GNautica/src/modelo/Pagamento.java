@@ -12,6 +12,7 @@ public class Pagamento {
     private double carteira;
     private String tipoPag;
     private String situacao;
+    
     public int getIdPag(){
         return idPag;
     }

@@ -10,6 +10,7 @@ public class Documentos {
     private int idDoc;
     private String tipoDoc;
     private String condicao;
+    
     public int getId(){
         return idDoc;
     }

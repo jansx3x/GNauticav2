@@ -10,6 +10,7 @@ public class Gastos {
     private int idGasto;
     private String tipoGasto;
     private double valor;
+    
     public int getIdGasto(){
         return idGasto;
     }
