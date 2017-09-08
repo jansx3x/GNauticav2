@@ -79,11 +79,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelValor" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelTipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelTipoGasto" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldTipo" min="-2" pref="167" max="-2" attributes="0"/>
+                              <Component id="jTextFieldTipoGasto" min="-2" pref="167" max="-2" attributes="0"/>
                               <Component id="jFormattedTextFieldValor" min="-2" pref="79" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -104,8 +104,8 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelTipo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelTipoGasto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldTipoGasto" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -136,12 +136,12 @@
             <Property name="text" type="java.lang.String" value="Gastos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelTipo">
+        <Component class="javax.swing.JLabel" name="jLabelTipoGasto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tipo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldTipo">
+        <Component class="javax.swing.JTextField" name="jTextFieldTipoGasto">
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldValor">
           <Properties>
@@ -183,23 +183,23 @@
                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelCarteira" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelTaxa" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jFormattedTextField1" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField2" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jFormattedTextFieldTaxa" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jFormattedTextFieldCarteira" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSituação" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelTipoPag" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField3" min="-2" pref="135" max="-2" attributes="0"/>
-                              <Component id="jTextField4" min="-2" pref="133" max="-2" attributes="0"/>
+                              <Component id="jTextFieldTipoPag" min="-2" pref="135" max="-2" attributes="0"/>
+                              <Component id="jTextFieldSituacao" min="-2" pref="133" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -219,17 +219,17 @@
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelTaxa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jFormattedTextFieldTaxa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelTipoPag" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldTipoPag" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCarteira" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jFormattedTextFieldCarteira" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelSituação" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldSituacao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -250,51 +250,51 @@
             <Property name="text" type="java.lang.String" value="Pagamentos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="jLabelTaxa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Taxa:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="jLabelCarteira">
           <Properties>
             <Property name="text" type="java.lang.String" value="Carteira:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="jLabelTipoPag">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tipo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="jLabelSitua&#xe7;&#xe3;o">
           <Properties>
             <Property name="text" type="java.lang.String" value="Situa&#xe7;&#xe3;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="jTextFieldTipoPag">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTipoPagActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="jTextFieldSituacao">
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldTaxa">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format subtype="0" type="3"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldTaxaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
+        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldCarteira">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format subtype="0" type="4"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldCarteiraActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonIncluirPag">
