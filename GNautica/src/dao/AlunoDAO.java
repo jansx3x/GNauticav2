@@ -56,7 +56,7 @@ public class AlunoDAO {
         try{
             comando.executeUpdate("DELETE FROM Aluno WHERE idAluno = " + idAluno + ";");
         } catch(SQLException e){
-            imprimeErro("Erro ao apagar aula!", e.getMessage());
+            imprimeErro("Erro ao apagar aluno!", e.getMessage());
         } finally{
             fechar();
         }
