@@ -21,4 +21,8 @@ public class ConnectionFactory {
         }
         return DriverManager.getConnection(url, nome, senha);
     }
+
+    Connection getConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
