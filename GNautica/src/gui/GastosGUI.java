@@ -49,7 +49,7 @@ public class GastosGUI extends javax.swing.JFrame {
         jButtonIncluirPag = new javax.swing.JButton();
         jButtonLimparPag = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
         jLabel1.setText("Controle de Gastos e Pagamentos");
