@@ -22,7 +22,8 @@ public class DocumentoDAO {
         conectar();
         try{
             comando.executeUpdate("INSERT INTO Aluno VALUES("
-                    + documento.getTipoDoc() + "," + documento.getCondicao() + ")");
+                    + documento.getTipoDoc() + "," + documento.getCondicao() + ","
+                    + documento.getAluno().getIdAluno() + ")");
             System.out.println("Documento cadastrado!");
         } catch(SQLException e){
             imprimeErro("Erro ao cadastrar documento!", e.getMessage());

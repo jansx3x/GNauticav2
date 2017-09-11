@@ -10,6 +10,8 @@ public class Documentos {
     private int idDoc;
     private String tipoDoc;
     private String condicao;
+    private Aluno idAluno;
+    
     public int getId(){
         return idDoc;
     }
@@ -28,5 +30,10 @@ public class Documentos {
     public void setCondicao(String condicao){
         this.condicao = condicao;
     }
-    
+    public Aluno getAluno(){
+        return idAluno;
+    }
+    public void setAluno(Aluno idAluno){
+        this.idAluno = idAluno;
+    }
 }
