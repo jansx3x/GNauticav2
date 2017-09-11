@@ -22,7 +22,8 @@ public class GastosDAO {
         conectar();
         try{
             comando.executeUpdate("INSERT INTO Aluno VALUES("
-                    + gasto.getTipoGasto() + "," + gasto.getValor() + ")");
+                    + gasto.getTipoGasto() + "," + gasto.getValor() + ","
+                    + gasto.getAula().getId() + ")");
             System.out.println("Gasto registrado!");
         } catch(SQLException e){
             imprimeErro("Erro ao registrar gasto!", e.getMessage());
