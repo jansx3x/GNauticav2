@@ -9,20 +9,17 @@ import java.sql.SQLException;
  */
 
 public class ConnectionFactory {
-    public static final int MYSQL = 0;
-    private static final String MySQLDriver = "com.mysql.jdbc.Driver";
+    public static final int MYSQL = 0;  
+    private static final String MySQLDriver = "com.mysql.jdbc.Driver";  
+  
+    public static Connection conexao(String url, String nome, String senha,  
+        int banco) throws ClassNotFoundException, SQLException {  
     
-    public static Connection conexao(String url, String nome, String senha, int banco)
-            throws ClassNotFoundException, SQLException{
-        switch(banco){
-            case MYSQL:
-                Class.forName(MySQLDriver);
-                break;
-        }
-        return DriverManager.getConnection(url, nome, senha);
-    }
-
-    Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        switch (banco) {        
+            case MYSQL:           
+            Class.forName(MySQLDriver);  
+            break;  
+        }  
+        return DriverManager.getConnection(url, nome, senha);  
+   }
 }
