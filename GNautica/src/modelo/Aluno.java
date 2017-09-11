@@ -15,6 +15,7 @@ public class Aluno {
     private String categoria;
     private String pendencia;
     private String avaliacao;
+    private Aula idAula;
     
     public int getIdAluno(){
         return idAluno;
@@ -69,5 +70,11 @@ public class Aluno {
     }
     public void setAvaliacao(String avaliacao){
         this.avaliacao = avaliacao;
+    }
+    public Aula getAula(){
+        return idAula;
+    }
+    public void setAula(Aula idAula){
+        this.idAula = idAula;
     }
 }

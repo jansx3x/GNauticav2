@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import modelo.Aluno;
+import modelo.Pagamento;
 import factory.ConnectionFactory;
 
 /**
@@ -11,57 +11,27 @@ import factory.ConnectionFactory;
  * @author Gwynbleidd
  */
 
-public class AlunoDAO {
+public class PagamentoDAO {
     private final String URL = "jdbc:mysql://localhost/gnautica",
             NOME = "root", SENHA = "3991";
     
     private Connection con;
     private Statement comando;
     
-    public void Cadastrar(Aluno aluno){
+    public void Registrar(Pagamento pagamento){
         conectar();
         try{
             comando.executeUpdate("INSERT INTO Aluno VALUES("
-                    + aluno.getNome() + "," + aluno.getCpf() + "," + aluno.getEndereco() + ","
-                    + aluno.getTelefone() + "," + aluno.getEmail() + "," + aluno.getCategoria() + ","
-                    + aluno.getPendencia() + "," + aluno.getAvaliacao() + aluno.getAula().getId() + ")");
-            System.out.println("Aluno cadastrado!");
+                    + pagamento.getTaxa() + "," + pagamento.getCarteira() + ","
+                    + pagamento.getTipoPag() + "," + pagamento.getSituacao() + ","
+                    + pagamento.getAluno().getIdAluno() + ")");
+            System.out.println("Pagamento registrado!");
         } catch(SQLException e){
             imprimeErro("Erro ao cadastrar aluno!", e.getMessage());
         } finally {
             fechar();
         }
     }
-    
-    public void Alterar(Aluno aluno){
-        conectar();
-        String com = "UPDATE Aluno SET nome = " + aluno.getNome()
-                + ", CPF = " + aluno.getCpf() + ", endereco = " + aluno.getEndereco()
-                + ", telefone = " + aluno.getTelefone() + ", email = " + aluno.getEmail()
-                + ", categoria = " + aluno.getCategoria() + ", pendencia = " + aluno.getPendencia()
-                + ", avaliacao = " + aluno.getAvaliacao() + ", idAula = " + aluno.getAula().getId() +
-                " WHERE idAluno = " + aluno.getIdAluno() + ";";
-        System.out.println("Alteração realizada!");
-        try{
-            comando.executeUpdate(com);
-        } catch(SQLException e){
-            e.printStackTrace();
-        } finally{
-            fechar();
-        }
-    }
-    
-    public void Excluir(int idAluno){
-        conectar();
-        try{
-            comando.executeUpdate("DELETE FROM Aluno WHERE idAluno = " + idAluno + ";");
-        } catch(SQLException e){
-            imprimeErro("Erro ao apagar aula!", e.getMessage());
-        } finally{
-            fechar();
-        }
-    }
-    
     
     private void conectar(){
         try{

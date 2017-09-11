@@ -12,6 +12,10 @@ public class Pagamento {
     private double carteira;
     private String tipoPag;
     private String situacao;
+<<<<<<< HEAD
+=======
+    private Aluno idAluno;
+>>>>>>> master
     
     public int getIdPag(){
         return idPag;
@@ -42,5 +46,11 @@ public class Pagamento {
     }
     public void setSituacao(String situacao){
         this.situacao = situacao;
+    }
+    public Aluno getAluno(){
+        return idAluno;
+    }
+    public void setAluno(Aluno idAluno){
+        this.idAluno = idAluno;
     }
 }

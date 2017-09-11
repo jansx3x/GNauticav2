@@ -10,6 +10,10 @@ public class Gastos {
     private int idGasto;
     private String tipoGasto;
     private double valor;
+<<<<<<< HEAD
+=======
+    private Aula idAula;
+>>>>>>> master
     
     public int getIdGasto(){
         return idGasto;
@@ -28,5 +32,11 @@ public class Gastos {
     }
     public void setValor(double valor){
         this.valor = valor;
+    }
+    public Aula getAula(){
+        return idAula;
+    }
+    public void setAula(Aula idAula){
+        this.idAula = idAula;
     }
 }
