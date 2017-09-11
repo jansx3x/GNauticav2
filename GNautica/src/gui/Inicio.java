@@ -124,7 +124,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButtonGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGastosActionPerformed
         // TODO add your handling code here:
-        
+        new gui.GastosGUI().setVisible(true);
     }//GEN-LAST:event_jButtonGastosActionPerformed
 
     /**
