@@ -23,7 +23,8 @@ public class PagamentoDAO {
         try{
             comando.executeUpdate("INSERT INTO Aluno VALUES("
                     + pagamento.getTaxa() + "," + pagamento.getCarteira() + ","
-                    + pagamento.getTipoPag() + "," + pagamento.getSituacao() + ")");
+                    + pagamento.getTipoPag() + "," + pagamento.getSituacao() + ","
+                    + pagamento.getAluno().getIdAluno() + ")");
             System.out.println("Pagamento registrado!");
         } catch(SQLException e){
             imprimeErro("Erro ao cadastrar aluno!", e.getMessage());
