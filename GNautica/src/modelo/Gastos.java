@@ -10,10 +10,7 @@ public class Gastos {
     private int idGasto;
     private String tipoGasto;
     private double valor;
-<<<<<<< HEAD
-=======
     private Aula idAula;
->>>>>>> master
     
     public int getIdGasto(){
         return idGasto;

@@ -10,10 +10,7 @@ public class Documentos {
     private int idDoc;
     private String tipoDoc;
     private String condicao;
-<<<<<<< HEAD
-=======
     private Aluno idAluno;
->>>>>>> master
     
     public int getId(){
         return idDoc;

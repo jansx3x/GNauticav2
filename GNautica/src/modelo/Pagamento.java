@@ -12,10 +12,7 @@ public class Pagamento {
     private double carteira;
     private String tipoPag;
     private String situacao;
-<<<<<<< HEAD
-=======
     private Aluno idAluno;
->>>>>>> master
     
     public int getIdPag(){
         return idPag;
