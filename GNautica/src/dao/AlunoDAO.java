@@ -24,7 +24,7 @@ public class AlunoDAO {
             comando.executeUpdate("INSERT INTO Aluno VALUES("
                     + aluno.getNome() + "," + aluno.getCpf() + "," + aluno.getEndereco() + ","
                     + aluno.getTelefone() + "," + aluno.getEmail() + "," + aluno.getCategoria() + ","
-                    + aluno.getPendencia() + "," + aluno.getAvaliacao() + ")");
+                    + aluno.getPendencia() + "," + aluno.getAvaliacao() + aluno.getAula().getId() + ")");
             System.out.println("Aluno cadastrado!");
         } catch(SQLException e){
             imprimeErro("Erro ao cadastrar aluno!", e.getMessage());
@@ -39,7 +39,8 @@ public class AlunoDAO {
                 + ", CPF = " + aluno.getCpf() + ", endereco = " + aluno.getEndereco()
                 + ", telefone = " + aluno.getTelefone() + ", email = " + aluno.getEmail()
                 + ", categoria = " + aluno.getCategoria() + ", pendencia = " + aluno.getPendencia()
-                + ", avaliacao = " + aluno.getAvaliacao() + "WHERE idAluno = " + aluno.getIdAluno() + ";";
+                + ", avaliacao = " + aluno.getAvaliacao() + ", idAula = " + aluno.getAula().getId() +
+                " WHERE idAluno = " + aluno.getIdAluno() + ";";
         System.out.println("Alteração realizada!");
         try{
             comando.executeUpdate(com);
