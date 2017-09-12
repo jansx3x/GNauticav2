@@ -5,7 +5,7 @@
  */
 package gui;
 import java.util.Timer;
-import modelo.Aula;
+//import modelo.Aula;
 /**
  *
  * @author Paulo
@@ -158,19 +158,19 @@ public class AulaGUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Limpa os dados nos campos da interface Agendamento de Aula:
-        jDateChooserData.setCalendar(null);
-        jTextFieldLocal.setText("");
-        jFormattedTextFieldHorario.setText("");
-        jComboBoxTipo.setSelectedItem("Selecione");
+        //jDateChooserData.setCalendar(null);
+        //jTextFieldLocal.setText("");
+        //jFormattedTextFieldHorario.setText("");
+        //jComboBoxTipo.setSelectedItem("Selecione");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Aula aula = new Aula();
-        aula.setData(jDateChooserData.getCalendar());
-        aula.setLocal(jTextFieldLocal.getText());
-        aula.setHorario(jFormattedTextFieldHorario.getText());
-        aula.setTipoAula(jComboBoxTipo.getSelectedItem().toString());
+        //Aula aula = new Aula();
+        //aula.setData(jDateChooserData.getCalendar());
+        //aula.setLocal(jTextFieldLocal.getText());
+        //aula.setHorario(jFormattedTextFieldHorario.getText());
+        //aula.setTipoAula(jComboBoxTipo.getSelectedItem().toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
