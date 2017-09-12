@@ -82,7 +82,7 @@ public class AlunoDAO {
     
     public void Alterar(Aluno aluno){
         conectar();
-        String com = "UPDATE Aluno SET nome = " + aluno.getNome()
+        String com = "UPDATE Aluno SET nomeAluno = " + aluno.getNome()
                 + ", CPF = " + aluno.getCpf() + ", endereco = " + aluno.getEndereco()
                 + ", telefone = " + aluno.getTelefone() + ", email = " + aluno.getEmail()
                 + ", categoria = " + aluno.getCategoria() + ", pendencia = " + aluno.getPendencia()
