@@ -5,6 +5,8 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import modelo.Pagamento;
 import factory.ConnectionFactory;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -21,10 +23,20 @@ public class PagamentoDAO {
     public void Registrar(Pagamento pagamento){
         conectar();
         try{
-            comando.executeUpdate("INSERT INTO Aluno VALUES("
-                    + pagamento.getTaxa() + "," + pagamento.getCarteira() + ","
-                    + pagamento.getTipoPag() + "," + pagamento.getSituacao() + ","
-                    + pagamento.getAluno().getIdAluno() + ")");
+            PreparedStatement ps = this.con.prepareStatement("INSERT INTO Pagamento(taxa, carteira, tipo, situacao, Aluno_idAluno)"
+                    + " VALUES(?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            ps.setDouble(1, pagamento.getTaxa());
+            ps.setDouble(2, pagamento.getCarteira());
+            ps.setString(3, pagamento.getTipoPag());
+            ps.setString(1, pagamento.getSituacao());
+            ps.setInt(3, pagamento.getAluno().getIdAluno());
+            ps.executeUpdate();
+                
+            ResultSet rs = ps.getGeneratedKeys();
+            int idPag = 0;
+            if(rs.next()){
+                idPag = rs.getInt(1);
+            }
             System.out.println("Pagamento registrado!");
         } catch(SQLException e){
             imprimeErro("Erro ao cadastrar aluno!", e.getMessage());

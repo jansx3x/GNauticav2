@@ -5,6 +5,8 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import modelo.Documentos;
 import factory.ConnectionFactory;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -21,9 +23,18 @@ public class DocumentoDAO {
     public void CadastrarDoc(Documentos documento){
         conectar();
         try{
-            comando.executeUpdate("INSERT INTO Aluno VALUES("
-                    + documento.getTipoDoc() + "," + documento.getCondicao() + ","
-                    + documento.getAluno().getIdAluno() + ")");
+            PreparedStatement ps = this.con.prepareStatement("INSERT INTO Documentos(tipo, condicao, Aluno_idAluno)"
+                    + " VALUES(?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, documento.getTipoDoc());
+            ps.setString(2, documento.getCondicao());
+            ps.setInt(3, documento.getAluno().getIdAluno());
+            ps.executeUpdate();
+                
+            ResultSet rs = ps.getGeneratedKeys();
+            int idDoc = 0;
+            if(rs.next()){
+                idDoc = rs.getInt(1);
+            }            
             System.out.println("Documento cadastrado!");
         } catch(SQLException e){
             imprimeErro("Erro ao cadastrar documento!", e.getMessage());
