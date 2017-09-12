@@ -100,11 +100,11 @@
                       <Component id="jTextFieldEndereco" pref="498" max="32767" attributes="0"/>
                       <Component id="jTextFieldNome" max="32767" attributes="0"/>
                       <Component id="jTextFieldEmail" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
-                      <Component id="jFormattedTextFieldTelefone" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
                       <Component id="jTextFieldPendencia" alignment="0" max="32767" attributes="0"/>
                       <Component id="jTextFieldAvaliacao" max="32767" attributes="0"/>
                       <Component id="jComboBoxCategoria" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jFormattedTextFieldCPF" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                      <Component id="jFormattedTextFieldCPF" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="jFormattedTextFieldTelefone" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

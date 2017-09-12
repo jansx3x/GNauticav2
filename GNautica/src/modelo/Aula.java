@@ -2,7 +2,6 @@
 package modelo;
 
 import java.util.Calendar;
-
 /**
  *
  * @author Zetsubou (Leidjane)
@@ -12,7 +11,7 @@ public class Aula {
     private int idAula;
     private Calendar data;
     private String local;
-    private Calendar horario;
+    private String horario;
     private String tipoAula;
     public int getId(){
         return idAula;
@@ -32,10 +31,10 @@ public class Aula {
     public void setLocal(String local){
         this.local = local;
     }
-    public Calendar getHorario(){
+    public String getHorario(){
         return horario;
     }
-    public void setHorario(Calendar horario){
+    public void setHorario(String horario){
         this.horario = horario;
     }
     public String getTipoAula(){
