@@ -17,7 +17,7 @@ import factory.ConnectionFactory;
 
 public class AlunoDAO {
     private final String URL = "jdbc:mysql://localhost/gnautica",
-            NOME = "root", SENHA = "1111";
+            NOME = "root", SENHA = "3991";
     
     private Connection con;
     private Statement comando;
@@ -53,13 +53,15 @@ public class AlunoDAO {
     public List<Aluno> Exibir(){  
         conectar();  
         try{
-            List<Aluno> result = new ArrayList<>();
+            List<Aluno> alunos = new ArrayList<Aluno>();
             PreparedStatement ps = this.con.prepareStatement("SELECT * FROM Aluno");
-            ResultSet rs = ps.executeQuery();  
+            ResultSet rs = ps.executeQuery();
+            
             while(rs.next()){  
                 Aluno temp = new Aluno();  
-                // pega todos os atributos de Aluno  
-                temp.setNome(rs.getString("nome"));  
+                // pega todos os atributos de Aluno
+                temp.setIdAluno(rs.getInt("idAluno"));
+                temp.setNome(rs.getString("nomeAluno"));  
                 temp.setCpf(rs.getString("CPF"));  
                 temp.setEndereco(rs.getString("endereco"));  
                 temp.setTelefone(rs.getString("telefone"));  
@@ -67,9 +69,9 @@ public class AlunoDAO {
                 temp.setCategoria(rs.getString("categoria"));
                 temp.setPendencia(rs.getString("pendencia"));
                 temp.setAvaliacao(rs.getString("avaliacao"));
-                result.add(temp);  
+                alunos.add(temp);  
             }
-            return result;  
+            return alunos;  
         } catch(SQLException e){  
             imprimeErro("Erro ao exibir!", e.getMessage());  
             return null;  
@@ -80,7 +82,7 @@ public class AlunoDAO {
     
     public void Alterar(Aluno aluno){
         conectar();
-        String com = "UPDATE Aluno SET nome = " + aluno.getNome()
+        String com = "UPDATE Aluno SET nomeAluno = " + aluno.getNome()
                 + ", CPF = " + aluno.getCpf() + ", endereco = " + aluno.getEndereco()
                 + ", telefone = " + aluno.getTelefone() + ", email = " + aluno.getEmail()
                 + ", categoria = " + aluno.getCategoria() + ", pendencia = " + aluno.getPendencia()
