@@ -5,7 +5,8 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import java.util.Vector;
+import java.util.List;
+import java.util.ArrayList;
 import modelo.Aluno;
 import factory.ConnectionFactory;
 
@@ -49,11 +50,12 @@ public class AlunoDAO {
         }
     }
     
-    public Vector<Aluno> Exibir(){  
+    public List<Aluno> Exibir(){  
         conectar();  
         try{
-            Vector<Aluno> result = new Vector<Aluno>();  
-            ResultSet rs = this.comando.executeQuery("SELECT * FROM Aluno");  
+            List<Aluno> result = new ArrayList<Aluno>();
+            PreparedStatement ps = this.con.prepareStatement("SELECT * FROM Aluno");
+            ResultSet rs = ps.executeQuery();  
             while(rs.next()){  
                 Aluno temp = new Aluno();  
                 // pega todos os atributos de Aluno  
@@ -66,12 +68,14 @@ public class AlunoDAO {
                 temp.setPendencia(rs.getString("pendencia"));
                 temp.setAvaliacao(rs.getString("avaliacao"));
                 result.add(temp);  
-            }  
+            }
             return result;  
         } catch(SQLException e){  
             imprimeErro("Erro ao exibir!", e.getMessage());  
             return null;  
-        }  
+        } finally{
+            fechar();
+        } 
     }  
     
     public void Alterar(Aluno aluno){
