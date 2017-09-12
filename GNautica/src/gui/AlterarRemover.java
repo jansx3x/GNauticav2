@@ -5,6 +5,7 @@
  */
 package gui;
 import dao.AlunoDAO;
+import modelo.Aluno;
 /**
  *
  * @author Zetsubou
@@ -45,6 +46,11 @@ public class AlterarRemover extends javax.swing.JFrame {
         jLabelTitulo.setText("Alterar/Remover");
 
         jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
         jButtonRemover.setText("Remover");
         jButtonRemover.addActionListener(new java.awt.event.ActionListener() {
@@ -92,9 +98,16 @@ public class AlterarRemover extends javax.swing.JFrame {
 
     private void jButtonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverActionPerformed
         // TODO add your handling code here:
-        AlunoDAO aluno = new AlunoDAO();
-        aluno.Excluir(WIDTH);
+        AlunoDAO dao = new AlunoDAO();
+        Aluno aluno = new Aluno();
+        dao.Excluir(aluno.getIdAluno());
     }//GEN-LAST:event_jButtonRemoverActionPerformed
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        // TODO add your handling code here:
+        AlunoDAO dao = new AlunoDAO();
+        //dao.Alterar(obj);
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     /**
      * @param args the command line arguments
