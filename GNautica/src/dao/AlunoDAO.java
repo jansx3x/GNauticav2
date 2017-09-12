@@ -5,6 +5,7 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import java.util.Vector;
 import modelo.Aluno;
 import factory.ConnectionFactory;
 
@@ -23,7 +24,7 @@ public class AlunoDAO {
     public void Cadastrar(Aluno aluno){
         conectar();
         try{
-            PreparedStatement ps = con.prepareStatement("INSERT INTO Aluno(nomeAluno, CPF, endereco, telefone, email, categoria, pendencia, avaliacao)"
+            PreparedStatement ps = this.con.prepareStatement("INSERT INTO Aluno(nomeAluno, CPF, endereco, telefone, email, categoria, pendencia, avaliacao)"
                     + " VALUES(?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, aluno.getNome());
             ps.setString(2, aluno.getCpf());
@@ -47,6 +48,31 @@ public class AlunoDAO {
             fechar();
         }
     }
+    
+    public Vector<Aluno> Exibir(){  
+        conectar();  
+        try{
+            Vector<Aluno> result = new Vector<Aluno>();  
+            ResultSet rs = this.comando.executeQuery("SELECT * FROM Aluno");  
+            while(rs.next()){  
+                Aluno temp = new Aluno();  
+                // pega todos os atributos de Aluno  
+                temp.setNome(rs.getString("nome"));  
+                temp.setCpf(rs.getString("CPF"));  
+                temp.setEndereco(rs.getString("endereco"));  
+                temp.setTelefone(rs.getString("telefone"));  
+                temp.setEmail(rs.getString("email"));
+                temp.setCategoria(rs.getString("categoria"));
+                temp.setPendencia(rs.getString("pendencia"));
+                temp.setAvaliacao(rs.getString("avaliacao"));
+                result.add(temp);  
+            }  
+            return result;  
+        } catch(SQLException e){  
+            imprimeErro("Erro ao exibir!", e.getMessage());  
+            return null;  
+        }  
+    }  
     
     public void Alterar(Aluno aluno){
         conectar();
