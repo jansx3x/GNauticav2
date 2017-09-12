@@ -2,6 +2,8 @@ package dao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import modelo.Aluno;
 import factory.ConnectionFactory;
@@ -21,10 +23,23 @@ public class AlunoDAO {
     public void Cadastrar(Aluno aluno){
         conectar();
         try{
-            comando.executeUpdate("INSERT INTO Aluno VALUES("
-                    + aluno.getNome() + "," + aluno.getCpf() + "," + aluno.getEndereco() + ","
-                    + aluno.getTelefone() + "," + aluno.getEmail() + "," + aluno.getCategoria() + ","
-                    + aluno.getPendencia() + "," + aluno.getAvaliacao() + ")");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO Aluno(nomeAluno, CPF, endereco, telefone, email, categoria, pendencia, avaliacao)"
+                    + " VALUES(?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, aluno.getNome());
+            ps.setString(2, aluno.getCpf());
+            ps.setString(3, aluno.getEndereco());
+            ps.setString(4, aluno.getTelefone());
+            ps.setString(5, aluno.getEmail());
+            ps.setString(6, aluno.getCategoria());
+            ps.setString(7, aluno.getPendencia());
+            ps.setString(8, aluno.getAvaliacao());
+            ps.executeUpdate();
+                
+            ResultSet rs = ps.getGeneratedKeys();
+            int idAluno = 0;
+            if(rs.next()){
+                idAluno = rs.getInt(1);
+            }            
             System.out.println("Aluno cadastrado!");
         } catch(SQLException e){
             imprimeErro("Erro ao cadastrar aluno!", e.getMessage());
@@ -39,8 +54,7 @@ public class AlunoDAO {
                 + ", CPF = " + aluno.getCpf() + ", endereco = " + aluno.getEndereco()
                 + ", telefone = " + aluno.getTelefone() + ", email = " + aluno.getEmail()
                 + ", categoria = " + aluno.getCategoria() + ", pendencia = " + aluno.getPendencia()
-                + ", avaliacao = " + aluno.getAvaliacao() + ", idAula = " +
-                " WHERE idAluno = " + aluno.getIdAluno() + ";";
+                + ", avaliacao = " + aluno.getAvaliacao() + " WHERE idAluno = " + aluno.getIdAluno() + ";";
         System.out.println("Alteração realizada!");
         try{
             comando.executeUpdate(com);
