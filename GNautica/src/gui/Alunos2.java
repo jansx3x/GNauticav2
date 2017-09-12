@@ -30,7 +30,7 @@ public class Alunos2 extends javax.swing.JFrame {
         jButtonAluno = new javax.swing.JButton();
         jButtonAula = new javax.swing.JButton();
         jLabelTitulo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,10 +52,10 @@ public class Alunos2 extends javax.swing.JFrame {
         jLabelTitulo.setForeground(new java.awt.Color(0, 0, 102));
         jLabelTitulo.setText("Alunos");
 
-        jButton1.setText("Voltar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonVoltarActionPerformed(evt);
             }
         });
 
@@ -78,7 +78,7 @@ public class Alunos2 extends javax.swing.JFrame {
                         .addGap(0, 87, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(jButtonVoltar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -91,7 +91,7 @@ public class Alunos2 extends javax.swing.JFrame {
                     .addComponent(jButtonAula, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jButtonVoltar)
                 .addContainerGap())
         );
 
@@ -108,10 +108,10 @@ public class Alunos2 extends javax.swing.JFrame {
         new gui.AlterarRemover().setVisible(true);
     }//GEN-LAST:event_jButtonAulaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +142,7 @@ public class Alunos2 extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Alunos2().setVisible(true);
             }
@@ -149,9 +150,9 @@ public class Alunos2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAluno;
     private javax.swing.JButton jButtonAula;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabelTitulo;
     // End of variables declaration//GEN-END:variables
 }

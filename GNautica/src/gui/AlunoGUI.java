@@ -49,8 +49,7 @@ public class AlunoGUI extends javax.swing.JFrame {
         jComboBoxCategoria = new javax.swing.JComboBox<>();
         jTextFieldAvaliacao = new javax.swing.JTextField();
         jTextFieldEmail = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        jComboBoxPendencia = new javax.swing.JComboBox<>();
         jButtonCadastrar = new javax.swing.JButton();
         jButtonLimpar = new javax.swing.JButton();
 
@@ -92,14 +91,7 @@ public class AlunoGUI extends javax.swing.JFrame {
 
         jComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ARA", "MA", "ARA + MA" }));
 
-        jCheckBox1.setText("Pagamento");
-
-        jCheckBox2.setText("Documentos");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
-            }
-        });
+        jComboBoxPendencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Pagamento", "Documento" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,10 +121,8 @@ public class AlunoGUI extends javax.swing.JFrame {
                             .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jCheckBox1)
-                        .addGap(26, 26, 26)
-                        .addComponent(jCheckBox2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxPendencia, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -165,8 +155,7 @@ public class AlunoGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPendencia)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
+                    .addComponent(jComboBoxPendencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAvaliacao)
@@ -234,27 +223,20 @@ public class AlunoGUI extends javax.swing.JFrame {
         aluno.setTelefone(jFormattedTextFieldTelefone.getText());
         aluno.setEmail(jTextFieldEmail.getText());
         aluno.setCategoria(jComboBoxCategoria.getSelectedItem().toString());
-        aluno.setPendencia(jTextFieldPendencia.getText());
+        aluno.setPendencia(jComboBoxPendencia.getSelectedItem().toString());
         aluno.setAvaliacao(jTextFieldAvaliacao.getText());
         
         if((jTextFieldNome.getText().isEmpty())||(jFormattedTextFieldCPF.getText().isEmpty())||
                 (jTextFieldEndereco.getText().isEmpty())||(jFormattedTextFieldTelefone.getText().isEmpty())||
                 (jTextFieldEmail.getText().isEmpty())||(jComboBoxCategoria.getSelectedItem().toString().isEmpty()
-                ||(jTextFieldPendencia.getText().isEmpty())||(jTextFieldAvaliacao.getText().isEmpty()))){
+                ||(jComboBoxPendencia.getSelectedItem().toString().isEmpty())||(jTextFieldAvaliacao.getText().isEmpty()))){
                     JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         }else {
             AlunoDAO dao = new AlunoDAO();
             dao.Cadastrar(aluno);
             JOptionPane.showMessageDialog(null,"Aluno: "+jTextFieldNome.getText()+"\nInserido com sucesso!");
         }
-        jTextFieldNome.setText("");
-        jFormattedTextFieldCPF.setText("");
-        jTextFieldEndereco.setText("");
-        jFormattedTextFieldTelefone.setText("");
-        jTextFieldEmail.setText("");
-        jComboBoxCategoria.setSelectedItem("Selecione");
-        jTextFieldPendencia.setText("");
-        jTextFieldAvaliacao.setText("");
+        this.dispose();
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
@@ -265,13 +247,9 @@ public class AlunoGUI extends javax.swing.JFrame {
         jFormattedTextFieldTelefone.setText("");
         jTextFieldEmail.setText("");
         jComboBoxCategoria.setSelectedItem("Selecione");
-        jTextFieldPendencia.setText("");
+        jComboBoxPendencia.setSelectedItem("Selecione");
         jTextFieldAvaliacao.setText("");
     }//GEN-LAST:event_jButtonLimparActionPerformed
-
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,9 +290,8 @@ public class AlunoGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonLimpar;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBoxCategoria;
+    private javax.swing.JComboBox<String> jComboBoxPendencia;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPF;
     private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
     private javax.swing.JLabel jLabelAvaliacao;

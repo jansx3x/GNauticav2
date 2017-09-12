@@ -53,7 +53,7 @@ public class AlunoDAO {
     public List<Aluno> Exibir(){  
         conectar();  
         try{
-            List<Aluno> result = new ArrayList<Aluno>();
+            List<Aluno> result = new ArrayList<>();
             PreparedStatement ps = this.con.prepareStatement("SELECT * FROM Aluno");
             ResultSet rs = ps.executeQuery();  
             while(rs.next()){  
@@ -89,7 +89,6 @@ public class AlunoDAO {
         try{
             comando.executeUpdate(com);
         } catch(SQLException e){
-            e.printStackTrace();
         } finally{
             fechar();
         }
