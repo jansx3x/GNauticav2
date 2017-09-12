@@ -15,7 +15,7 @@ import factory.ConnectionFactory;
 
 public class AlunoDAO {
     private final String URL = "jdbc:mysql://localhost/gnautica",
-            NOME = "root", SENHA = "3991";
+            NOME = "root", SENHA = "1111";
     
     private Connection con;
     private Statement comando;
