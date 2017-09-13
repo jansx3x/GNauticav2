@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 
 public class DocumentoDAO {
     private final String URL = "jdbc:mysql://localhost/gnautica",
-            NOME = "root", SENHA = "3991";
+            NOME = "root", SENHA = "12345";
     
     private Connection con;
     private Statement comando;

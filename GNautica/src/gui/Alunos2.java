@@ -32,7 +32,7 @@ public class Alunos2 extends javax.swing.JFrame {
         jLabelTitulo = new javax.swing.JLabel();
         jButtonVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButtonAluno.setText("Cadastrar");
         jButtonAluno.addActionListener(new java.awt.event.ActionListener() {

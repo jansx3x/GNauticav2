@@ -35,7 +35,7 @@
                       <Component id="jPanel1" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="118" pref="416" max="32767" attributes="0"/>
+                      <EmptySpace min="118" pref="391" max="32767" attributes="0"/>
                       <Component id="jButtonLimpar" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonCadastrar" min="-2" pref="90" max="-2" attributes="0"/>
@@ -85,15 +85,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelCPF" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelPendencia" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelAvaliacao" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelCategoria" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelPendencia" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNome" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAvaliacao" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabelCPF" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabelEmail" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabelCategoria" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelEndereco" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelTelefone" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -111,7 +117,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jComboBoxPendencia" min="-2" pref="139" max="-2" attributes="0"/>
+                          <Component id="jComboBoxPendencia" min="-2" pref="117" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -248,10 +254,11 @@
         <Component class="javax.swing.JComboBox" name="jComboBoxPendencia">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="4">
                 <StringItem index="0" value="Selecione"/>
-                <StringItem index="1" value="Pagamento"/>
-                <StringItem index="2" value="Documento"/>
+                <StringItem index="1" value="Sem Pend&#xea;ncia"/>
+                <StringItem index="2" value="Pagamento"/>
+                <StringItem index="3" value="Documento"/>
               </StringArray>
             </Property>
           </Properties>

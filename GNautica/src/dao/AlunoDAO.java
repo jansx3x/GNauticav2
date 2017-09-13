@@ -17,7 +17,7 @@ import factory.ConnectionFactory;
 
 public class AlunoDAO {
     private final String URL = "jdbc:mysql://localhost/gnautica",
-            NOME = "root", SENHA = "3991";
+            NOME = "root", SENHA = "12345";
     
     private Connection con;
     private Statement comando;
@@ -130,10 +130,42 @@ public class AlunoDAO {
         }
     }
     
+    public void Atualizar(Aluno aluno){
+        conectar();
+        try{
+            PreparedStatement ps = this.con.prepareStatement ("UPDATE Aluno SET nomeAluno = ? ,CPF = ? ,endereco = ? ,telefone = ? ,email = ? ,avaliacao = ? WHERE id = ?");
+            ps.setString(1, aluno.getNome());
+            ps.setString(2, aluno.getCpf());
+            ps.setString(3, aluno.getEndereco());
+            ps.setString(4, aluno.getTelefone());
+            ps.setString(5, aluno.getEmail());
+            ps.setString(6, aluno.getCategoria());
+            ps.setString(7, aluno.getPendencia());
+            ps.setString(8, aluno.getAvaliacao());
+            ps.setInt(9, aluno.getIdAluno());
+            ps.executeUpdate();
+                
+            ResultSet rs = ps.getGeneratedKeys();
+            int idAluno = 0;
+            if(rs.next()){
+                idAluno = rs.getInt(1);
+            }            
+            System.out.println("Atualizado com sucesso!");
+        } catch(SQLException e){
+            imprimeErro("Erro ao atualizar!", e.getMessage());
+        } finally {
+            fechar();
+        }
+    }
+    
     private void imprimeErro(String msg, String msgErro){
         JOptionPane.showMessageDialog(null, msg, "Erro crítico", 0);
         System.err.println(msg);
         System.out.println(msgErro);
         System.exit(0);
+    }
+
+    public void Excluir(Aluno aluno) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

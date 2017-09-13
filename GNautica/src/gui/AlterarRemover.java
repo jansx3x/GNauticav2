@@ -5,9 +5,11 @@
  */
 package gui;
 import dao.AlunoDAO;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import modelo.Aluno;
+import gui.AlunoGUI;
 /**
  *
  * @author Zetsubou
@@ -98,6 +100,11 @@ public final class AlterarRemover extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableBanco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTableBancoKeyReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableBanco);
 
         jButtonVoltar.setText("Voltar");
@@ -125,14 +132,14 @@ public final class AlterarRemover extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
-                .addGap(247, 247, 247))
+                .addGap(245, 245, 245))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,9 +157,15 @@ public final class AlterarRemover extends javax.swing.JFrame {
 
     private void jButtonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverActionPerformed
         // TODO add your handling code here:
-        AlunoDAO dao = new AlunoDAO();
-        Aluno aluno = new Aluno();
-        dao.Excluir(aluno.getIdAluno());
+        if(jTableBanco.getSelectedRow() != -1){
+            Aluno aluno = new Aluno();
+            AlunoDAO dao = new AlunoDAO();
+            
+            aluno.setIdAluno((int) jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 0));
+            dao.Excluir(aluno);
+        }else {
+            JOptionPane.showMessageDialog(null, "Selecione um produto para excluir");
+        }
     }//GEN-LAST:event_jButtonRemoverActionPerformed
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
@@ -166,6 +179,11 @@ public final class AlterarRemover extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jTableBancoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableBancoKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTableBancoKeyReleased
 
     /**
      * @param args the command line arguments

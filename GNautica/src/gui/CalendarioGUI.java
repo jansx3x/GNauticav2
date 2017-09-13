@@ -31,7 +31,7 @@ public class CalendarioGUI extends javax.swing.JFrame {
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jPanel1 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelTitulo.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
         jLabelTitulo.setText("Calendário de Atividades");

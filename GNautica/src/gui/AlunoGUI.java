@@ -91,7 +91,7 @@ public class AlunoGUI extends javax.swing.JFrame {
 
         jComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "ARA", "MA", "ARA + MA" }));
 
-        jComboBoxPendencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Pagamento", "Documento" }));
+        jComboBoxPendencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Sem Pendência", "Pagamento", "Documento" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,15 +99,18 @@ public class AlunoGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNome)
-                    .addComponent(jLabelCPF)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelPendencia)
+                                .addComponent(jLabelNome, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabelAvaliacao, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabelCPF, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(jLabelEmail, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabelCategoria)
                     .addComponent(jLabelEndereco)
-                    .addComponent(jLabelTelefone)
-                    .addComponent(jLabelEmail)
-                    .addComponent(jLabelPendencia)
-                    .addComponent(jLabelAvaliacao)
-                    .addComponent(jLabelCategoria))
+                    .addComponent(jLabelTelefone))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -122,7 +125,7 @@ public class AlunoGUI extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxPendencia, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxPendencia, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -191,7 +194,7 @@ public class AlunoGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 416, Short.MAX_VALUE)
+                        .addGap(118, 391, Short.MAX_VALUE)
                         .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -309,4 +312,8 @@ public class AlunoGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldEndereco;
     private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
+
+    private void readJTable() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
