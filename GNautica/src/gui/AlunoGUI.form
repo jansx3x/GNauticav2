@@ -111,19 +111,12 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jFormattedTextFieldTelefone" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <EmptySpace min="179" pref="868" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jFormattedTextFieldCPF" min="-2" pref="115" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldNome" min="-2" pref="498" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldEndereco" alignment="0" min="-2" pref="498" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jFormattedTextFieldTelefone" min="-2" pref="115" max="-2" attributes="0"/>
+                              <Component id="jFormattedTextFieldCPF" min="-2" pref="115" max="-2" attributes="0"/>
+                              <Component id="jTextFieldNome" min="-2" pref="498" max="-2" attributes="0"/>
+                              <Component id="jTextFieldEndereco" alignment="0" min="-2" pref="498" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -344,7 +337,7 @@
                 <Column editable="true" title="Email" type="java.lang.Object"/>
                 <Column editable="false" title="Categoria" type="java.lang.Object"/>
                 <Column editable="false" title="Pend&#xea;ncia" type="java.lang.Object"/>
-                <Column editable="true" title="Telefone" type="java.lang.Object"/>
+                <Column editable="true" title="Avalia&#xe7;&#xe3;o" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
