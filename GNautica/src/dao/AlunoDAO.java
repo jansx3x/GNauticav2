@@ -17,11 +17,11 @@ import factory.ConnectionFactory;
 
 public class AlunoDAO {
     private final String URL = "jdbc:mysql://localhost/gnautica",
-            NOME = "root", SENHA = "12345";
+            NOME = "root", SENHA = "3991";
     
     private Connection con;
     private Statement comando;
-    
+    //funcionando
     public void Cadastrar(Aluno aluno){
         conectar();
         try{
@@ -49,7 +49,7 @@ public class AlunoDAO {
             fechar();
         }
     }
-    
+    //funcionando
     public List<Aluno> Exibir(){  
         conectar();  
         try{
@@ -82,64 +82,34 @@ public class AlunoDAO {
     
     public void Alterar(Aluno aluno){
         conectar();
-        String com = "UPDATE Aluno SET nomeAluno = " + aluno.getNome()
-                + ", CPF = " + aluno.getCpf() + ", endereco = " + aluno.getEndereco()
-                + ", telefone = " + aluno.getTelefone() + ", email = " + aluno.getEmail()
-                + ", categoria = " + aluno.getCategoria() + ", pendencia = " + aluno.getPendencia()
-                + ", avaliacao = " + aluno.getAvaliacao() + " WHERE idAluno = " + aluno.getIdAluno() + ";";
-        System.out.println("Alteração realizada!");
         try{
-            comando.executeUpdate(com);
-        } catch(SQLException e){
+            PreparedStatement ps = con.prepareStatement("UPDATE Aluno SET nomeAluno = ?, CPF = ? ,endereco = ? ,telefone = ? ,email = ? ,avaliacao = ? WHERE id = ?");
+            ps.setString(1, aluno.getNome());
+            ps.setString(2, aluno.getCpf());
+            ps.setString(3, aluno.getEndereco());
+            ps.setString(4, aluno.getTelefone());
+            ps.setString(5, aluno.getEmail());
+            ps.setString(8, aluno.getAvaliacao());            
+            
+            System.out.println("Alteração realizada!");
+        }
+        catch(SQLException e){
+            imprimeErro("Erro ao apagar aluno!", e.getMessage());
         } finally{
             fechar();
         }
     }
-    
-    public void Excluir(int idAluno){
-        Aluno aluno = new Aluno();
-        conectar();
-        PreparedStatement ps = null;
-        
-        try {
-            ps = con.prepareStatement("DELETE FROM Aluno WHERE idAluno = ?");
+    //funcionando
+    public void Excluir(Aluno aluno){
+        conectar();        
+        try{
+            PreparedStatement ps = con.prepareStatement("DELETE FROM Aluno WHERE idAluno = ?");
             ps.setInt(1, aluno.getIdAluno());
             ps.executeUpdate();
         } catch(SQLException e){
             imprimeErro("Erro ao apagar aluno!", e.getMessage());
         } finally{
             fechar();
-        }
-        /*conectar();
-        try{
-            comando.executeUpdate("DELETE FROM Aluno WHERE idAluno = " + idAluno + ";");
-        } catch(SQLException e){
-            imprimeErro("Erro ao apagar aluno!", e.getMessage());
-        } finally{
-            fechar();
-        }*/
-    }
-    
-    
-    private void conectar(){
-        try{
-            con = ConnectionFactory.conexao(URL, NOME, SENHA, ConnectionFactory.MYSQL);
-            comando = con.createStatement();
-            System.out.println("Conectado!");
-        } catch(ClassNotFoundException e){
-            imprimeErro("Erro ao carregar o driver!", e.getMessage());
-        } catch(SQLException e){
-            imprimeErro("Erro ao conectar!", e.getMessage());
-        }
-    }
-    
-    private void fechar(){
-        try{
-            comando.close();
-            con.close();
-            System.out.println("Conexão Fechada!");
-        } catch(SQLException e){
-            imprimeErro("Erro ao fechar conexão!", e.getMessage());
         }
     }
     
@@ -170,16 +140,33 @@ public class AlunoDAO {
             fechar();
         }
     }
-    
+    //funcionando
+    private void conectar(){
+        try{
+            con = ConnectionFactory.conexao(URL, NOME, SENHA, ConnectionFactory.MYSQL);
+            comando = con.createStatement();
+            System.out.println("Conectado!");
+        } catch(ClassNotFoundException e){
+            imprimeErro("Erro ao carregar o driver!", e.getMessage());
+        } catch(SQLException e){
+            imprimeErro("Erro ao conectar!", e.getMessage());
+        }
+    }
+    //funcionando
+    private void fechar(){
+        try{
+            comando.close();
+            con.close();
+            System.out.println("Conexão Fechada!");
+        } catch(SQLException e){
+            imprimeErro("Erro ao fechar conexão!", e.getMessage());
+        }
+    }
+    //funcionando
     private void imprimeErro(String msg, String msgErro){
         JOptionPane.showMessageDialog(null, msg, "Erro crítico", 0);
         System.err.println(msg);
         System.out.println(msgErro);
         System.exit(0);
     }
-
-    public void Excluir(Aluno aluno) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
