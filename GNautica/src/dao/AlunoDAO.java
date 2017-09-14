@@ -97,14 +97,27 @@ public class AlunoDAO {
     }
     
     public void Excluir(int idAluno){
+        Aluno aluno = new Aluno();
         conectar();
+        PreparedStatement ps = null;
+        
+        try {
+            ps = con.prepareStatement("DELETE FROM Aluno WHERE idAluno = ?");
+            ps.setInt(1, aluno.getIdAluno());
+            ps.executeUpdate();
+        } catch(SQLException e){
+            imprimeErro("Erro ao apagar aluno!", e.getMessage());
+        } finally{
+            fechar();
+        }
+        /*conectar();
         try{
             comando.executeUpdate("DELETE FROM Aluno WHERE idAluno = " + idAluno + ";");
         } catch(SQLException e){
             imprimeErro("Erro ao apagar aluno!", e.getMessage());
         } finally{
             fechar();
-        }
+        }*/
     }
     
     
@@ -168,4 +181,5 @@ public class AlunoDAO {
     public void Excluir(Aluno aluno) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }

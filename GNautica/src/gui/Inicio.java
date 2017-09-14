@@ -108,7 +108,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButtonAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlunoActionPerformed
         // TODO add your handling code here:
-        new gui.Alunos2().setVisible(true);
+        new gui.AlunoGUI().setVisible(true);
     }//GEN-LAST:event_jButtonAlunoActionPerformed
 
     private void jButtonAulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAulaActionPerformed
