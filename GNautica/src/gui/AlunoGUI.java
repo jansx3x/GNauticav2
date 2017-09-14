@@ -374,6 +374,7 @@ public class AlunoGUI extends javax.swing.JFrame {
         }else {
             JOptionPane.showMessageDialog(null, "Selecione um produto para excluir");
         }
+        readJTable();
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
