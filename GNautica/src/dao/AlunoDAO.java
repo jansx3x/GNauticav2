@@ -107,12 +107,7 @@ public class AlunoDAO {
             ps.setString(8, aluno.getAvaliacao());
             ps.setInt(9, aluno.getIdAluno());
             ps.executeUpdate();
-                
-            /*ResultSet rs = ps.getGeneratedKeys();
-            int idAluno = 0;
-            if(rs.next()){
-                idAluno = rs.getInt(1);
-            }*/            
+            
             System.out.println("Alterado com sucesso!");
         } catch(SQLException e){
             imprimeErro("Erro ao alterar!", e.getMessage());
