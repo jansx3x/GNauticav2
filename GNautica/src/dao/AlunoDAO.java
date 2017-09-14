@@ -96,7 +96,7 @@ public class AlunoDAO {
     public void Alterar(Aluno aluno){
         conectar();
         try{
-            PreparedStatement ps = this.con.prepareStatement ("UPDATE Aluno SET nomeAluno = ? ,CPF = ? ,endereco = ? ,telefone = ? ,email = ? ,avaliacao = ? WHERE id = ?");
+            PreparedStatement ps = this.con.prepareStatement ("UPDATE Aluno SET nomeAluno = ?, CPF = ?, endereco = ?, telefone = ?, email = ?, categoria = ?, pendencia = ?, avaliacao = ? WHERE idAluno = ?");
             ps.setString(1, aluno.getNome());
             ps.setString(2, aluno.getCpf());
             ps.setString(3, aluno.getEndereco());
@@ -108,14 +108,14 @@ public class AlunoDAO {
             ps.setInt(9, aluno.getIdAluno());
             ps.executeUpdate();
                 
-            ResultSet rs = ps.getGeneratedKeys();
+            /*ResultSet rs = ps.getGeneratedKeys();
             int idAluno = 0;
             if(rs.next()){
                 idAluno = rs.getInt(1);
-            }            
+            }*/            
             System.out.println("Alterado com sucesso!");
         } catch(SQLException e){
-            imprimeErro("Erro ao alterado!", e.getMessage());
+            imprimeErro("Erro ao alterar!", e.getMessage());
         } finally {
             fechar();
         }
