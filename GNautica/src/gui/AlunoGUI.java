@@ -258,6 +258,11 @@ public class AlunoGUI extends javax.swing.JFrame {
         });
 
         jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
         jButtonExcluir.setText("Excluir");
         jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -384,7 +389,51 @@ public class AlunoGUI extends javax.swing.JFrame {
 
     private void jTableBancoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableBancoKeyReleased
         // TODO add your handling code here:
+        if(jTableBanco.getSelectedRow() != -1){
+            jTextFieldNome.setText(jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 1).toString());
+            jFormattedTextFieldCPF.setText(jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 2).toString());
+            jTextFieldEndereco.setText(jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 3).toString());
+            jFormattedTextFieldTelefone.setText(jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 4).toString());
+            jTextFieldEmail.setText(jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 5).toString());
+            jComboBoxCategoria.setSelectedItem(jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 6).toString());
+            jComboBoxPendencia.setSelectedItem(jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 7).toString());
+            jTextFieldAvaliacao.setText(jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 8).toString());
+        }
     }//GEN-LAST:event_jTableBancoKeyReleased
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        // TODO add your handling code here:
+        Aluno aluno = new Aluno();
+        aluno.setNome(jTextFieldNome.getText());
+        aluno.setCpf(jFormattedTextFieldCPF.getText());
+        aluno.setEndereco(jTextFieldEndereco.getText());
+        aluno.setTelefone(jFormattedTextFieldTelefone.getText());
+        aluno.setEmail(jTextFieldEmail.getText());
+        aluno.setCategoria(jComboBoxCategoria.getSelectedItem().toString());
+        aluno.setPendencia(jComboBoxPendencia.getSelectedItem().toString());
+        aluno.setAvaliacao(jTextFieldAvaliacao.getText());
+        aluno.setIdAluno((int)jTableBanco.getValueAt(jTableBanco.getSelectedRow(), 0));
+        
+        if((jTextFieldNome.getText().isEmpty())||(jFormattedTextFieldCPF.getText().isEmpty())||
+                (jTextFieldEndereco.getText().isEmpty())||(jFormattedTextFieldTelefone.getText().isEmpty())||
+                (jTextFieldEmail.getText().isEmpty())||(jComboBoxCategoria.getSelectedItem().toString().isEmpty()
+                ||(jComboBoxPendencia.getSelectedItem().toString().isEmpty())||(jTextFieldAvaliacao.getText().isEmpty()))){
+                    JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+        }else {
+            AlunoDAO dao = new AlunoDAO();
+            dao.Alterar(aluno);
+            JOptionPane.showMessageDialog(null,"Aluno: "+jTextFieldNome.getText()+"\nInserido com sucesso!");
+        }
+        readJTable();
+        jTextFieldNome.setText("");
+        jFormattedTextFieldCPF.setText("");
+        jTextFieldEndereco.setText("");
+        jFormattedTextFieldTelefone.setText("");
+        jTextFieldEmail.setText("");
+        jComboBoxCategoria.setSelectedItem("Selecione");
+        jComboBoxPendencia.setSelectedItem("Selecione");
+        jTextFieldAvaliacao.setText("");
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     /**
      * @param args the command line arguments

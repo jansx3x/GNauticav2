@@ -79,26 +79,6 @@ public class AlunoDAO {
             fechar();
         } 
     }  
-    
-    public void Alterar(Aluno aluno){
-        conectar();
-        try{
-            PreparedStatement ps = con.prepareStatement("UPDATE Aluno SET nomeAluno = ?, CPF = ? ,endereco = ? ,telefone = ? ,email = ? ,avaliacao = ? WHERE id = ?");
-            ps.setString(1, aluno.getNome());
-            ps.setString(2, aluno.getCpf());
-            ps.setString(3, aluno.getEndereco());
-            ps.setString(4, aluno.getTelefone());
-            ps.setString(5, aluno.getEmail());
-            ps.setString(8, aluno.getAvaliacao());            
-            
-            System.out.println("Alteração realizada!");
-        }
-        catch(SQLException e){
-            imprimeErro("Erro ao apagar aluno!", e.getMessage());
-        } finally{
-            fechar();
-        }
-    }
     //funcionando
     public void Excluir(Aluno aluno){
         conectar();        
@@ -113,7 +93,7 @@ public class AlunoDAO {
         }
     }
     
-    public void Atualizar(Aluno aluno){
+    public void Alterar(Aluno aluno){
         conectar();
         try{
             PreparedStatement ps = this.con.prepareStatement ("UPDATE Aluno SET nomeAluno = ? ,CPF = ? ,endereco = ? ,telefone = ? ,email = ? ,avaliacao = ? WHERE id = ?");
@@ -133,9 +113,9 @@ public class AlunoDAO {
             if(rs.next()){
                 idAluno = rs.getInt(1);
             }            
-            System.out.println("Atualizado com sucesso!");
+            System.out.println("Alterado com sucesso!");
         } catch(SQLException e){
-            imprimeErro("Erro ao atualizar!", e.getMessage());
+            imprimeErro("Erro ao alterado!", e.getMessage());
         } finally {
             fechar();
         }
